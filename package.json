@@ -1,6 +1,6 @@
 {
   "name": "discogs-image-grabber",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Grabs images from Discogs API",
   "main": "index.js",
   "scripts": {
