@@ -44,13 +44,9 @@ If you want to use it into your scripts:
       // too bad
     })
 
----
-
 ## Disclaimer
 
-Make a fair use of this, so do not pipe a gazillion request per seconds: Discogs limits them [to 20 per minute per IP address](https://www.discogs.com/developers/#page:home,header:home-rate-limiting), so `_.throttle` is your friend.
-
----
+Make a fair use of this, so please do not pipe a gazillion request per seconds: Discogs limits them [to 20 per minute per IP address](https://www.discogs.com/developers/#page:home,header:home-rate-limiting) - `_.throttle` and proper timeouts are your friends.
 
 ## Internet Systems Consortium license
 
