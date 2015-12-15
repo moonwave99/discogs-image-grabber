@@ -1,7 +1,7 @@
 {
   "name": "discogs-image-grabber",
   "version": "0.0.1",
-  "description": "Grab images from discogs API",
+  "description": "Grabs images from Discogs API",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
