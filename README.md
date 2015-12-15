@@ -1,8 +1,22 @@
 # Discogs Image Grabber
 
-Grab [Discogs](https://www.discogs.com) images via command line:
+Grab [Discogs](https://www.discogs.com) release covers via command line:
 
     $ discogs --token a9c8d34176060890ba50bc300d43ce01 --userAgentURL http://yourwebsite.com --requestURL /releases/561793
+
+The `requestURL` parameter is the relative URL for **master releases** and **releases** according to [Discogs API documentation](https://www.discogs.com/developers/#page:database).
+
+Note the different URL schema between website and API:
+
+    http://www.discogs.com/Slowdive-Outside-Your-Room-EP/release/582239
+    http://api.discogs.com/releases/582239
+
+    http://www.discogs.com/Slowdive-Outside-Your-Room-EP/master/9486
+    http://api.discogs.com/masters/9486
+
+API uses plural (`releases`, `masters`)!
+
+---
 
 The `token` is strictly needed, you can get it from the [developer settings page](https://www.discogs.com/settings/developers) of your Discogs account (see _Generate new token_).
 Regarding the user agent, Discogs API states that [_your application must provide a User-Agent string that identifies itself_](https://www.discogs.com/developers/#page:home,header:home-general-information), so providing the `userAgentURL` parameter will result in issuing the request with:
