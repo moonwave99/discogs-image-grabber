@@ -3,7 +3,6 @@ var fs = require('fs-extra')
 var path = require('path')
 var util = require('util')
 var _ = require('lodash')
-var chalk = require('chalk')
 var Promise = require('bluebird')
 var http = Promise.promisifyAll(require('http-request'))
 
@@ -15,7 +14,6 @@ module.exports = function(options){
     requestURL:   '/releases/561793',
     outputDir:    process.cwd(),
     outputExt:    '.jpeg',
-    verbose:      false,
     token:        null,
     userAgentURL: null
   }
@@ -36,22 +34,14 @@ module.exports = function(options){
   if(!requestOptions.qs.token){
     return Promise.reject(new Error('No API token provided'))
   }
-  if(options.verbose){
-    console.log(chalk.cyan('Requesting ' + url + '...'))
-    console.log(chalk.yellow(util.inspect(requestOptions, false, 2, true)) + '\n')
-  }
   return request.get(url, requestOptions).then(function(response){
     if(response.images){
       var dest = path.join(options.outputDir, response.id + options.outputExt)
-      http.getAsync(response.images[0].resource_url, dest).then(function(){
-        options.verbose && console.log(chalk.yellow("Saved image to: " + chalk.green(dest)))
-      }).catch(function(error){
-        console.log(chalk.red(error.stack))
+      return http.getAsync(response.images[0].resource_url, dest).then(function(){
+        return dest;
       })
     }else{
-      options.verbose && console.log(chalk.yellow('No images found for ' + chalk.green(what)))
+      return Promise.reject(new Error('No images found for ' + options.requestURL))
     }
-  }).catch(function(error){
-    console.log(chalk.red(error.stack))
   })
 }
