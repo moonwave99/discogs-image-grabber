@@ -1,0 +1,25 @@
+{
+  "name": "discogs-image-grabber",
+  "version": "0.0.1",
+  "description": "Grab images from discogs API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "discogs": "lib/grabber.js"
+  },
+  "preferGlobal": true,
+  "author": "moonwave99 <diego.caponera@gmail.com> [http://www.diegocaponera.com]",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^2.9.14",
+    "chalk": "^1.1.1",
+    "dotenv": "^1.2.0",
+    "fs-extra": "^0.26.2",
+    "http-request": "^0.7.0",
+    "lodash": "^3.10.1",
+    "request-promise": "^0.4.1",
+    "yargs": "^3.31.0"
+  }
+}
